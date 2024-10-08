@@ -1,5 +1,6 @@
 import { Ticket } from '@prisma/client';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import TicketStatusBadge from '@/components/TicketStatusBadge';
 
 // 17. Ticket Table
 
@@ -24,7 +25,9 @@ const DataTable = async ({ tickets }: Props) => {
             ? tickets.map((ticket) => (
                 <TableRow key={ticket.id} data-href={'/'}>
                   <TableCell>{ticket.title}</TableCell>
-                  <TableCell>{ticket.status}</TableCell>
+                  <TableCell>
+                    <TicketStatusBadge status={ticket.status} />
+                  </TableCell>
                   <TableCell>{ticket.priority}</TableCell>
                   <TableCell>
                     {ticket.createdAt.toLocaleDateString('en-CA', {
