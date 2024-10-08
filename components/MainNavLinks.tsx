@@ -14,7 +14,6 @@ const MainNavLinks = () => {
   ];
 
   const currentPath = usePathname();
-  console.log(currentPath);
 
   return (
     <div className={'flex items-center gap-2'}>
@@ -23,7 +22,7 @@ const MainNavLinks = () => {
           key={link.label}
           href={link.href}
           className={clsx('font-medium text-muted-foreground transition-colors hover:text-primary/80', {
-            'cursor-default text-primary': currentPath === link.href,
+            'font-bold cursor-default text-primary': currentPath === link.href,
           })}
         >
           {link.label}
